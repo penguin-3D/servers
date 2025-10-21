@@ -62,6 +62,8 @@ wss.on('connection', ws => {
         }
       });
       ws.send(JSON.stringify({type: "list", data: data}));
+    } else if (data.type == "ping") {
+      ws.send(JSON.stringify({type: "pong"}));
     }
   });
 });
